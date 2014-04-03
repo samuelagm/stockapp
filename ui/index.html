@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="ui/css/metro-bootstrap.css">
+
+<script  src="ui/js/lib/jquery.min.js"></script>
+<script  src="ui/js/metro-dialog.js"></script>
+
+<style>
+html {
+background-color:#808080;
+	 
+	 }
+#container {
+	width:100%;
+	height:100%;
+}
+</style>
+<script>
+   
+	//<![CDATA[
+	$(document).submit(function () {
+		//window.location.href = "h";
+		
+		this.email = $("#email");
+		this.password = $("#password");
+		
+		var view = this;
+		$.ajax({
+			type: "POST", url: 'login', data: { email: this.email.val(), password: this.password.val() }, success: function (rO) {
+				if (rO.response == "OK") {
+					window.location.href = "h";
+				} else {
+			
+					 $.Dialog({
+						overlay: true,
+						shadow: true,
+						flat: true,
+						icon: '',
+						title: 'Invalid login credentials',
+						content: "<br/><br/><strong style='padding:30px'>Wrong email or password</strong>",
+						onShow: function(_dialog){
+							//alert('Holla');
+		
+						}
+					});							
+					alert()
+
+				}
+			}, dataType: 'json'
+		});
+		return false;
+
+	});
+	//]]>
+
+</script>
+<title>Excel Git</title>
+</head>
+
+<body class='metro'>
+<div id="container">
+<div class="grid">
+  <div class="row">
+    <div class="span10">
+        <center>        <h1 style="margin-top: 100px;" class="fg-white">
+            xCESS
+        </h1>
+            <h3 class="fg-white">&nbsp; &nbsp;inventory app</h3>
+        </center>
+
+    </div>
+    <div class="span4" style="margin-top: 100px;">
+
+      <h3>Login</h3>
+
+      <form>
+        <div class="input-control text">
+          <input type="text" value="" id="email" autofocus="true" placeholder="username"/>
+          <button class="btn-clear" tabindex="-1"></button>
+        </div>
+        <div class="input-control password" data-role="input-control">
+          <input placeholder="type password"  type="password" id="password">
+          <button type="button" class="btn-reveal" tabindex="-1"></button>
+        </div>
+        <input type="submit"  class="medium bg-darkGreen fg-white" value="Login"  />
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

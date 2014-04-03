@@ -1,0 +1,122 @@
+
+<div class="grid fluid" style="margin-top:20px;padding:25px;">
+
+  <div class="row">
+    <div class="span3">
+      <h1 class="fg-dark"> products </h1>
+    </div>
+    <div class="span4"> <br />
+      <div class="toolbar transparent">
+        <button id="newproduct" class='button'> <i class="icon-plus-2 fg-white" style="background: green; color: white; padding: 10px; border-radius: 50%"></i> add  product </button>
+        <button id="viewreport" class='button'> <i class="icon-stats-up fg-white" style="background: green; color: white; padding: 10px; border-radius: 50%"></i> sales report </button>
+
+      </div>
+    </div>
+  </div>
+  <div class="row" >
+  
+   <div class="span12">
+    <table class="table" >
+      <thead>
+        <tr>
+          <th class="text-left">Name</th>
+          <th class="text-left">Desccription</th>
+          <th class="text-left">Quantity</th>
+          <th class="text-left">Action</th>
+        </tr>
+      </thead>
+      <tbody id="list">
+        <tr>
+          <td colspan='4'><i>No product have been added, you can add one by click the <strong>green plus button</strong> to your left</i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+  
+</div>
+
+</div>
+<script id="product-detail" type="text/x-jsrender">
+	<td cellpadding="6"><strong>{{:name}}</strong></td><td>{{:description}}</td><td>{{:quantity}}</td><td>
+        <button class="default bg-teal" id="viewbtn"><i class="icon-pencil"></i> &nbsp;Edit Product </button>
+        <button class="default bg-teal" id="rsalesview"><i class="icon-clipboard"></i> &nbsp;Record Sales </button>
+        <button class="default bg-teal" id="stockview"><i class="icon-plus-2"></i> &nbsp;Add Stock </button>
+        <button class="default bg-gray" id="del"><i class="icon-cancel-2"></i> &nbsp;delete </button>
+    </td>
+</script> 
+<script id="product-edit" type="text/x-jsrender">
+    <td colspan="4">
+        <div class="bg-emerald fg-white">
+  
+          <form id="np" style="padding:20px" >
+            <h2 class="fg-white"> Edit product information for {{:name}}</h2>
+            <hr/>
+            <label>Name</label>
+            <div class="input-control text" data-role="input-control">
+                <input  type="text" id="name" value="{{:name}}">
+                <button type="button" tabindex="-1" class="btn-clear"></button>
+            </div>
+            <label>Description</label>
+            <div class="input-control textarea">
+                <textarea id="desc">{{:description}}</textarea>
+            </div>
+
+            <div class="form-actions"> <br />
+                <input type="submit" value="Save" class="button primary" id="editbtn"/>
+                &nbsp;
+                <button class="button" type="button" id="cancel">Cancel</button>
+            </div>
+           </form>
+           </div>
+    </td>
+    
+    
+</script>
+<script id="product-addstock" type="text/x-jsrender">
+    <td colspan="4">
+        <div class="bg-emerald fg-white">
+
+          <form id="as" style="padding:20px" >
+            <h2 class="fg-white"> Add more {{:name}} stock</h2>
+             <hr/>
+            <label>Quantity</label>
+            <div class="input-control text" data-role="input-control">
+                <input  type="text" id="squantity"  placeholder="Quantity of stock to be added">
+                <button type="button" tabindex="-1" class="btn-clear"></button>
+            </div>
+
+            <div class="form-actions"> <br />
+                <input type="submit" value="Add" class="button primary" id="addstockbtn"/>
+                &nbsp;
+                <button class="button" type="button" id="cancel">Cancel</button>
+            </div>
+           </form>
+           </div>
+    </td>
+    
+    
+</script>
+<script id="product-recordsale" type="text/x-jsrender">
+    <td colspan="4">
+        <div class="bg-emerald fg-white">
+   
+          <form id="as" style="padding:20px" >
+             <h2 class="fg-white"> Record Sales for {{:name}}</h2>
+                <hr/>
+            <label>Quantity</label>
+            <div class="input-control text" data-role="input-control">
+                <input  type="text" id="rquantity" placeholder="Quantity of stock sold">
+                <button type="button" tabindex="-1" class="btn-clear"></button>
+            </div>
+
+            <div class="form-actions"> <br />
+                <input type="submit" value="Record" class="button primary" id="recordsalesbtn"/>
+                &nbsp;
+                <button class="button" type="button" id="cancel">Cancel</button>
+            </div>
+           </form>
+           </div>
+    </td>
+    
+    
+</script>

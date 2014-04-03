@@ -1,0 +1,53 @@
+
+<div id="view"></div>
+<script id="project-detail" type="text/x-jsrender">
+<div id="" class="grid fluid">
+  <div class="row"> 
+
+    
+  </div>
+  <div class="row">
+    <div class="span4">
+      <nav class="vertical-menu">
+
+        <ul>
+        <div class="">
+          <h1 class="fg-white"> {{:name}}</h1>
+		      <blockquote>
+    			<p class='fg-white'>{{:description}}</p>
+				<p class="fg-white"> -<i>{{:creator}}</i></p>
+    		</blockquote>
+          
+        </div>  
+        <br/>      
+          <!--<li class="title fg-white">options</li>-->
+          <a class="button small default" id="dlo">Original</a>
+          <a class="button small default bg-green fg-white" id="dle">Edited</a>
+		  <a class="button small default bg-gray fg-white" id="edit">Edit</a>
+        </ul>
+      </nav>
+    </div>
+    <div class="span8">
+    <br/> <br/>
+      <table class="table hovered">
+        <thead>
+          <tr>
+            <th class="text-left">Modified</th>
+            <th class="text-left">Editor</th>
+            <th class="text-left">Action</th>
+          </tr>
+        </thead>
+        <tbody id="list">
+			<tr>
+				<td colspan='3'> <i>No modifications have been made to this worksheet</i></td>
+			</tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</script> 
+<script id="change-row" type="text/x-jsrender">
+	<td>{{:dateinfo}}</td><td>{{:username}}</td><td><button class="default" id="viewbtn"><i class="icon-screen"></i> &nbsp;view </button></td>
+</script> 
+<script id="project-edit" type="text/x-jsrender"></script>
